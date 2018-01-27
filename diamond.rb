@@ -1,6 +1,19 @@
 class Diamond
   attr_reader :letters, :height, :rows, :space
   def initialize(letter)
+    validate_input(letter)
+  end
+
+  def validate_input(letter)
+    regex = /^[A-Z]{1}$/
+    if letter.match(regex)
+      print_diamond(letter)
+    else
+      puts "Invalid input"
+    end
+  end
+
+  def print_diamond(letter)
     @letters = [*?A..letter]
     @height = letters.count
     @rows = (1..height)
@@ -38,3 +51,6 @@ end
 Diamond.new('C')
 Diamond.new('H')
 Diamond.new('P')
+Diamond.new('-1')
+Diamond.new('c')
+Diamond.new('BB')

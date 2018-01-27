@@ -5,7 +5,7 @@ class Diamond
   end
 
   def validate_input(letter)
-    regex = /^[A-Z]{1}$/
+    regex = /^[B-Y]{1}$/
     if letter.match(regex)
       print_diamond(letter)
     else
@@ -48,9 +48,15 @@ class Diamond
 
 end
 
+# valid
+Diamond.new('B')
 Diamond.new('C')
 Diamond.new('H')
 Diamond.new('P')
+
+# invalid
 Diamond.new('-1')
 Diamond.new('c')
 Diamond.new('BB')
+Diamond.new('A')
+Diamond.new('Z')
